@@ -21,6 +21,40 @@ public class HomeController {
         return "index";
     }
 
+
+    @RequestMapping(value="/american")
+    public String american(){
+        return "american";
+    }
+
+    @RequestMapping(value="/clockwork")
+    public String clockwork(){
+        return "clockwork";
+    }
+
+    @RequestMapping(value="/eet")
+    public String eet(){
+        return "eet";
+    }
+
+    @RequestMapping(value="/silencelambs")
+    public String silencelambs(){
+        return "silencelambs";
+    }
+
+    @RequestMapping(value="/truman")
+    public String truman(){
+        return "truman";
+    }
+
+
+    @RequestMapping(value="/403")
+    public String Error403(){
+        return "403";
+    }
+
+
+
     @GetMapping("/login")
     public String login() {
         return "login";
