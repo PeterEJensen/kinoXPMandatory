@@ -1,6 +1,7 @@
 package com.example.kinoXP;
 //Created by Peter
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,7 @@ import javax.sql.DataSource;
 //@EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //@Qualifier("dataSource")
+    @Qualifier("dataSource")
     @Autowired
     DataSource dataSource;
     //Autowired
@@ -29,10 +30,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american").permitAll()
+                .antMatchers("/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**").permitAll()
                 .antMatchers("/admin/**", "/delete", "/create", "/calendar", "/post", "/contact").hasAnyRole("ADMIN")
                 .antMatchers("/user/**", "/calendar", "/search", "/search/**", "/contact").hasAnyRole("USER")
                 .anyRequest().authenticated()
+                .and()
+                .csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
+                .and().headers().frameOptions().sameOrigin()//allow use of frame to same origin urls
                 .and()
                 .formLogin()
                 .loginPage("/login")
