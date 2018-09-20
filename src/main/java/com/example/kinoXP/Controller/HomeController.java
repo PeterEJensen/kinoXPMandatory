@@ -1,4 +1,4 @@
-package com.example.kinoXP;
+package com.example.kinoXP.Controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
