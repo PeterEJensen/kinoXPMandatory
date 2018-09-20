@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <!-- this is the header for our application. It displays the top bar and must be included in all html classes for the top bar to appear -->
+        <link rel="stylesheet" type="text/css"
+              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <link rel="stylesheet" th:href="@{/css/main.css}"
+              href="../../css/main.css"/>
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+    <!-- this is header -->
+    <nav class="navbar navbar-carlsberg">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand"><img src="https://cinemaxx.azureedge.net/~/static/tznm0feddbiaquk4iqiota/static/img/logo.svg"
+                                             height="36" width="86"/></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a th:href="@{/}" class="navbar-text-color">Hjem</a></li>
+                    <li class="active"><a th:href="@{/admin}" class="navbar-text-color">Admin</a></li>
+                    <li class="active"><a th:href="@{/calendar}" class="navbar-text-color">Log ind</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
