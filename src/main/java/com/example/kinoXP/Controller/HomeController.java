@@ -23,14 +23,9 @@ public class HomeController {
     }
 
 
-    /*@RequestMapping(value="/american")
+    @RequestMapping(value="/american")
     public String american(){
         return "american";
-    }*/
-
-    @GetMapping("/american")
-    public String american() {
-        return "/american";
     }
 
     @RequestMapping(value="/clockwork")
