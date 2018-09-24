@@ -1,6 +1,7 @@
 package com.example.kinoXP.Domain;
 
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 @Table(name = "movie")
@@ -47,4 +48,5 @@ public class Movie {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
