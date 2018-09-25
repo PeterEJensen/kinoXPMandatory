@@ -13,14 +13,10 @@ public class HomeController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 //comment
-    @GetMapping("/index")
-    public String index(Model model) {
-        log.info("index action called...");
-        //code
-        log.info("index action ended...");
-
-        return "index";
-    }
+@RequestMapping(value = "/", method = RequestMethod.GET) //get method to request data
+public String index() {
+    return "index";
+}
 
 
     @RequestMapping(value="/american")
