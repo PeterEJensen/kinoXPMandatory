@@ -14,7 +14,7 @@ public class Movie {
     private String title;
     private String genre;
     private String description;
-    private Date date;
+    //@OneToMany private Date date;
 
     public Movie() {
     }
@@ -51,12 +51,12 @@ public class Movie {
         this.description = description;
     }
 
-    public Date getDate() {
+   /* public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
     }
-
+*/
 }
