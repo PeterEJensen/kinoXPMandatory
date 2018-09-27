@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.EntityManager;
 import java.io.*;
 import java.sql.Blob;
+import javax.servlet.ServletContext;
 import java.util.logging.Logger;
 
 @Controller
@@ -57,6 +58,7 @@ public class NewmovieController {
 
 
         movieService.addMovie(movie);
+
         return "redirect:/";
     }
 }

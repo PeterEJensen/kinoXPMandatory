@@ -1,6 +1,7 @@
 package com.example.kinoXP.Domain;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.sql.Blob;
 
 @Entity
@@ -13,6 +14,7 @@ public class Movie {
     private String title;
     private String genre;
     private String description;
+    private Date date;
 
     public Movie() {
     }
@@ -47,6 +49,14 @@ public class Movie {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 }
