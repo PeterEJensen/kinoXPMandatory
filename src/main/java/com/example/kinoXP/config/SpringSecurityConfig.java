@@ -31,10 +31,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
                 http
+
                 .authorizeRequests()
-                .antMatchers( "/css/**","/resources/**","/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**").permitAll()
+                .antMatchers("/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**").permitAll()
                 .antMatchers("/admin/**", "/delete", "/create", "/calendar", "/post", "/contact").hasAnyRole("ADMIN")
                 .antMatchers("/user/**", "/calendar", "/search", "/search/**", "/contact").hasAnyRole("USER")
+                        .antMatchers("/webjars/**").permitAll()
+                        .antMatchers("/css/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
@@ -58,12 +61,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-      @Override
+    @Override
     public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**"); //No effect??
+        web.ignoring().antMatchers("/javax.faces.resources/**");
     }
+
 
 
 }
