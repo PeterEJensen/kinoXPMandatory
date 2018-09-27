@@ -13,14 +13,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.firewall.DefaultHttpFirewall;
+import org.springframework.security.web.firewall.HttpFirewall;
 
 import javax.sql.DataSource;
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Qualifier("dataSource")
+    //@Qualifier("dataSource")
     @Autowired
     DataSource dataSource;
     //Autowired
@@ -30,12 +32,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-                http
-
+                http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**").permitAll()
-                .antMatchers("/admin/**", "/delete", "/create", "/calendar", "/post", "/contact").hasAnyRole("ADMIN")
-                .antMatchers("/user/**", "/calendar", "/search", "/search/**", "/contact").hasAnyRole("USER")
+                .antMatchers("/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**", "/css/**", "/js/**").permitAll()
+                .antMatchers().hasAnyRole("ADMIN")
+                .antMatchers().hasAnyRole("USER")
                         .antMatchers("/webjars/**").permitAll()
                         .antMatchers("/css/**").permitAll()
                 .anyRequest().authenticated()
@@ -45,6 +46,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                        .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
                 .logout()
@@ -63,9 +65,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/javax.faces.resources/**");
+        web.ignoring().antMatchers("/css/**","/images/**","/js/**");
     }
 
-
-
+   /* @Bean
+    public HttpFirewall defaultHttpFirewall() {
+        return new DefaultHttpFirewall();
+    }
+*/
 }
