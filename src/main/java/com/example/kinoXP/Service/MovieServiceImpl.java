@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Service
@@ -22,6 +23,11 @@ public class MovieServiceImpl implements MovieService{
 
     @Autowired
     MovieShowingsRepository movieShowingsRepository;
+
+    @Override
+    public List<Movie> findAll() {
+        return movieRepository.findAll();
+    }
 
     @Override
     public void addMovie(Movie movie) {
@@ -64,5 +70,15 @@ public class MovieServiceImpl implements MovieService{
         finalDate.set(Calendar.MILLISECOND, 0);
 
         return finalDate.getTime();
+    }
+
+    @Override
+    public Movie findMovieById(Long id) {
+        return movieRepository.findMovieById(id);
+    }
+
+    @Override
+    public Movie findMovieByTitle(String title) {
+        return movieRepository.findMovieByTitle(title);
     }
 }
