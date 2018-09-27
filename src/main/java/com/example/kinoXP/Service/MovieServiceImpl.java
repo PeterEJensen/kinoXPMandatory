@@ -2,7 +2,9 @@ package com.example.kinoXP.Service;
 
 import com.example.kinoXP.Controller.NewmovieController;
 import com.example.kinoXP.Domain.Movie;
+import com.example.kinoXP.Domain.MovieShowing;
 import com.example.kinoXP.Repository.MovieRepository;
+import com.example.kinoXP.Repository.MovieShowingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,19 @@ public class MovieServiceImpl implements MovieService{
     @Autowired
     MovieRepository movieRepository;
 
+    @Autowired
+    MovieShowingsRepository movieShowingsRepository;
+
     @Override
     public void addMovie(Movie movie) {
         movieRepository.save(movie);
+    }
+
+    @Override
+    public void addMovieShowing(Movie movie, MovieShowing movieShowing) {
+
+        movie.addMovieShowing(movieShowing);
+        movieShowingsRepository.save(movieShowing);
     }
 
     @Override

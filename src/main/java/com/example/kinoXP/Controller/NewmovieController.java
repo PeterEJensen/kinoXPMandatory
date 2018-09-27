@@ -1,6 +1,7 @@
 package com.example.kinoXP.Controller;
 
 import com.example.kinoXP.Domain.Movie;
+import com.example.kinoXP.Domain.MovieShowing;
 import com.example.kinoXP.Service.MovieService;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ import javax.persistence.EntityManager;
 import java.io.*;
 import java.sql.Blob;
 import javax.servlet.ServletContext;
+import java.util.Date;
 import java.util.logging.Logger;
 
 @Controller
@@ -52,12 +54,16 @@ public class NewmovieController {
         movie.setTitle(title);
         movie.setGenre(genre);
         movie.setDescription(description);
-
-
-       logger.info(movieService.createDateObject(startDate,startTime).toString());
-
-
         movieService.addMovie(movie);
+
+        MovieShowing movieShowing = new MovieShowing();
+        Date movieShowingDate =  movieService.createDateObject(startDate,startTime);
+        movieShowing.setDate(movieShowingDate);
+        movieService.addMovieShowing(movie,movieShowing);
+
+
+
+
 
         return "redirect:/";
     }

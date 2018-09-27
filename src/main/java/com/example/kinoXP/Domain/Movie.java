@@ -1,8 +1,10 @@
 package com.example.kinoXP.Domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.sql.Blob;
+import java.util.List;
 
 @Entity
 @Table(name = "movie")
@@ -10,11 +12,13 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "movie_id")
     private Long id;
     private String title;
     private String genre;
     private String description;
-    //@OneToMany private Date date;
+    @OneToMany(mappedBy = "movie")
+    private List<MovieShowing> movieShowings;
 
     public Movie() {
     }
@@ -51,12 +55,20 @@ public class Movie {
         this.description = description;
     }
 
-   /* public Date getDate() {
-        return date;
+    public List<MovieShowing> getMovieShowing() {
+        return movieShowings;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setMovieShowing(List<MovieShowing> movieShowing) {
+        this.movieShowings = movieShowing;
     }
-*/
+
+    public void addMovieShowing(MovieShowing movieShowing){
+        if(movieShowings == null){
+            movieShowings = new ArrayList<MovieShowing>();
+        }
+        movieShowings.add(movieShowing);
+        movieShowing.setMovie(this);
+    }
+
 }
