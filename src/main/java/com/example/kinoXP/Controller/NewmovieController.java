@@ -30,17 +30,20 @@ public class NewmovieController {
     EntityManager entityManager;
 
     @GetMapping("/add")
-    public String addmovieGet(){
-
+    public String addmovieGet(Model model){
+        model.addAttribute("movies",movieService.findAll());
         return "add";
     }
 
     @PostMapping("/add")
-    public String addmoviePost(@RequestParam(value = "title")String title,
-                               @RequestParam(value = "genre")String genre,
-                               @RequestParam(value = "description")String description,
+    public String addmoviePost(@RequestParam(value = "title", required = false)String title,
+                               @RequestParam(value = "genre", required = false)String genre,
+                               @RequestParam(value = "description", required = false)String description,
                                @RequestParam(value = "startDate")String startDate,
-                               @RequestParam(value = "startTime")String startTime){
+                               @RequestParam(value = "startTime")String startTime,
+                               @RequestParam(value = "addToMovie",required = false)String addToMovie){
+
+
 
         logger.info(title);
         logger.info(genre);
@@ -48,18 +51,30 @@ public class NewmovieController {
         logger.info(startDate);
         logger.info(startTime);
 
-
-
-        Movie movie = new Movie();
-        movie.setTitle(title);
-        movie.setGenre(genre);
-        movie.setDescription(description);
-        movieService.addMovie(movie);
-
         MovieShowing movieShowing = new MovieShowing();
         Date movieShowingDate =  movieService.createDateObject(startDate,startTime);
         movieShowing.setDate(movieShowingDate);
-        movieService.addMovieShowing(movie,movieShowing);
+
+        logger.info(addToMovie);
+
+        if(addToMovie.equals("0")){
+            logger.info("Tiloføjer nny film" + addToMovie);
+            Movie movie = new Movie();
+            movie.setTitle(title);
+            movie.setGenre(genre);
+            movie.setDescription(description);
+            movieService.addMovie(movie);
+            movieService.addMovieShowing(movie,movieShowing);
+        } else {
+            logger.info(addToMovie);
+            Movie movie = movieService.findMovieByTitle(addToMovie);
+
+            logger.info(movie.getTitle());
+
+            movieService.addMovieShowing(movie, movieShowing);
+        }
+
+
 
 
 
