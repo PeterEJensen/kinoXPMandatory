@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Booking</title>
+
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
+
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!--!  <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>-->
+    <div th:replace="fragments/header :: header-css"/>
+
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+
+</head>
+<body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- FUNCTIONS FOR THIS CLASS YET TO BE ADDED -->
+
+
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <form action="contact.html">
+
+        <label for="fname">Fornavn</label>
+        <input type="text" id="fname" name="firstname" placeholder="Dit navn.."/>
+
+        <label for="email">Tlf nr</label>
+        <input type="text" id="email" name="lastname" placeholder="Dit tlf nr"/>
+
+        <label for="department">Tidspunkt?</label>
+        <select id="department" name="department">
+            <option value="tekniker">14:00</option>
+            <option value="supporter">17:00</option>
+            <option value="sale">20:00</option>
+        </select>
+
+        <label for="subject">Besked</label>
+        <textarea id="subject" name="subject" placeholder="Kommentar/ønsker" style="height:200px"></textarea>
+
+       <!-- <input type="submit" value="Book"/>-->
+
+    </form>
+
+
+    <button onclick="myFunction()">Book billet</button>
+
+    <script>
+        function myFunction() {
+            swal(
+                'God fornøjelse!',
+                'Din booking er godkendt. Vi glæder os til at se dig!',
+                'success'
+            ).then(function () {
+                window.location.href = "/";
+                
+            });
+        }
+    </script>
+
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
