@@ -63,5 +63,10 @@ public String index() {
     }
 
 
+
+    @GetMapping("/showBookings")
+    public String showBookings() {
+        return "showBookings";
+    }
 }
 
