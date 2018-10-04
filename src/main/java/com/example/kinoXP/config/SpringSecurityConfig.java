@@ -34,15 +34,15 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/css/**","/resources/**","/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**", "/image").permitAll()
-                .antMatchers("/admin/**", "/delete", "/create", "/calendar", "/post", "/contact").hasAnyRole("ADMIN")
-                .antMatchers("/user/**", "/calendar", "/search", "/search/**", "/contact").hasAnyRole("USER")
-                .antMatchers("/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**", "/css/**", "/js/**").permitAll()
-                .antMatchers().hasAnyRole("ADMIN")
-                .antMatchers().hasAnyRole("USER")
-                        .antMatchers("/webjars/**").permitAll()
-                        .antMatchers("/css/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers( "/"," /css/**","/resources/**","/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american", "/image", "/contact").permitAll()
+                .antMatchers("/add", "/calendar", "/h2-console").hasAnyRole("ADMIN")
+                .antMatchers("/calendar").hasAnyRole("USER")
+                //.antMatchers("/", "/home", "/about", "/index/**", "/register", "/confirm", "/truman", "/eet", "/silencelambs", "/clockwork", "/american","/add/**","/h2-console/**", "/css/**", "/js/**").permitAll()
+               // .antMatchers().hasAnyRole("ADMIN")
+                //.antMatchers().hasAnyRole("USER")
+                  //      .antMatchers("/webjars/**").permitAll()
+                    //    .antMatchers("/css/**").permitAll()
+               // .anyRequest().authenticated()
                 .and()
                 .csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
                 .and().headers().frameOptions().sameOrigin()//allow use of frame to same origin urls
@@ -60,9 +60,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("{noop}123").roles("USER");//noop removes the use for encrypted password **PASSWORDS ARE STORED IN PLAINTEXT**
+
+        auth.inMemoryAuthentication().withUser("admin").password("{noop}123").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("user").password("{noop}123").roles("USER");
+
+                //.withUser("user").password("{noop}123").roles("USER");//noop removes the use for encrypted password **PASSWORDS ARE STORED IN PLAINTEXT**
 
 
     }

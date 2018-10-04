@@ -49,9 +49,12 @@ public String index() {
 
     @RequestMapping(value="/403")
     public String Error403(){
-        return "403";
+        return "/error/403";
     }
-
+    @RequestMapping(value="/404")
+    public String Error404(){
+        return "/error/404";
+    }
 
 
     @GetMapping("/login")
