@@ -1,5 +1,7 @@
 package com.example.kinoXP.Domain;
 
+import org.springframework.ui.Model;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,9 +24,6 @@ public class Movie {
     @Lob
     @Column(name="CATEGORY_PHOTO")
     private byte[] CategoryPhoto;
-
-    public Movie() {
-    }
 
     public Long getId() {
         return id;

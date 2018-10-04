@@ -25,27 +25,18 @@
         <tr>
             <th>Id</th>
             <th>Movie Name</th>
-            <th>Air Time</th>
+            <th>Genre</th>
             <th>Movie Duration</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student: ${students}">
-            <td th:text="${student.studentId}"/>
-            <td th:text="${student.firstName}"/>
-            <td th:text="${student.lastName}"/>
-            <td th:text="${student.enrollmentDate}"/>
-            <td th:text="${student.cpr}"/>
+        <tr th:each="movie: ${movies}">
+            <td th:text="${movie.id}"/>
+            <td th:text="${movie.title}"/>
+            <td th:text="${movie.genre}"/>
+            <td th:text="${movie.description}"/>
             <td>
-                <a class="glyphicon glyphicon-cog" th:href="${'details/' + student.studentId}">
-                    <!--<button class="btn btn-info glyphicon glyphicon-cog">details</button>-->
-                </a>
-                <a class="glyphicon glyphicon-pencil" th:href="${'edit/' + student.studentId}">
-                    <!--<button class="btn btn-warning glyphicon glyphicon-pencil">edit</button>-->
-                </a>
-                <a class="glyphicon glyphicon-remove" th:href="${'delete/' + student.studentId}">
-                    <!--<button class="btn btn-danger glyphicon glyphicon-remove">delete</button>-->
-                </a>
+
             </td>
         </tr>
 

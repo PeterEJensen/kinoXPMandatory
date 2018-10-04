@@ -15,7 +15,9 @@ import javax.persistence.EntityManager;
 import java.io.*;
 import java.sql.Blob;
 import javax.servlet.ServletContext;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Controller
@@ -58,7 +60,7 @@ public class NewmovieController {
         logger.info(addToMovie);
 
         if(addToMovie.equals("0")){
-            logger.info("Tiloføjer nny film" + addToMovie);
+            logger.info("Tilføjer ny film" + addToMovie);
             Movie movie = new Movie();
             movie.setTitle(title);
             movie.setGenre(genre);
@@ -73,12 +75,6 @@ public class NewmovieController {
 
             movieService.addMovieShowing(movie, movieShowing);
         }
-
-
-
-
-
-
 
         return "redirect:/";
     }
