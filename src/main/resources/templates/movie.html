@@ -30,17 +30,24 @@
             <img th:src="${src}"  height="400" width="300" id="picture"/>
         </div>
         <div class="col-sm-6">
+            <tr>
+                <th><h4>
+                    Movie showings:
+                </h4>
+                </th>
+
+            </tr>
             <table>
-                <tr>
-                    <th>
-                        Movie showings:
-                    </th>
-                </tr>
+
                 <tr th:each="movieshowing: ${movie.movieShowing}">
-                    <td th:text="${#dates.format(movieshowing.date, 'dd-MMM-yyyy')}"></td>
+
+
+                   <!-- <td th:text="${#dates.format(movieshowing.date, 'dd-MMM-yyyy')}"></td>-->
+                        <li class="active"><a th:href="@{/contact}" class="navbar-text-color" th:text="${#dates.format(movieshowing.date, 'dd-MMM-yyyy')}"></a></li>
+                    </a>
                 </tr>
             </table>
-            <h3>Description</h3>
+            <h4>Description</h4>
             <p th:text="${movie.description}"></p>
         </div>
     </div>
