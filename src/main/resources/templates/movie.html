@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>addmovie</title>
+</head>
+
+<meta charset="utf-8"/>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body>
+
+<div th:replace="fragments/header1 :: header"/>
+
+<div class="container">
+
+<h1 th:text="${movie.title}"></h1>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img th:src="${src}"  height="400" width="300" id="picture"/>
+        </div>
+        <div class="col-sm-6">
+            <table>
+                <tr>
+                    <th>
+                        Movie showings:
+                    </th>
+                </tr>
+                <tr th:each="movieshowing: ${movie.movieShowing}">
+                    <td th:text="${#dates.format(movieshowing.date, 'dd-MMM-yyyy')}"></td>
+                </tr>
+            </table>
+            <h3>Description</h3>
+            <p th:text="${movie.description}"></p>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+</body>
+</html>

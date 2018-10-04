@@ -8,6 +8,7 @@ import com.example.kinoXP.Repository.MovieShowingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,9 @@ import java.util.logging.Logger;
 @Service
 public class MovieServiceImpl implements MovieService{
 
+
+
+
     private Logger logger = Logger.getLogger(MovieServiceImpl.class.getName());
 
     @Autowired
@@ -23,6 +27,18 @@ public class MovieServiceImpl implements MovieService{
 
     @Autowired
     MovieShowingsRepository movieShowingsRepository;
+
+    @Override
+    public List<String> pictureArray() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("http://www.gstatic.com/tv/thumb/v22vodart/23514/p23514_v_v8_ab.jpg");
+        arrayList.add("http://www.gstatic.com/tv/thumb/v22vodart/1587/p1587_v_v8_aa.jpg");
+        arrayList.add("http://www.gstatic.com/tv/thumb/v22vodart/10998/p10998_v_v8_ah.jpg");
+        arrayList.add("http://www.gstatic.com/tv/thumb/v22vodart/13013/p13013_v_v8_ac.jpg");
+        arrayList.add("https://resizing.flixster.com/1euG0DUzyKp959yYjF4g4_3WSmw=/206x305/v1.bTsxMTI5MDIyNDtqOzE3OTA1OzEyMDA7MjQzOTszMjUy");
+        return arrayList;
+
+    }
 
     @Override
     public List<Movie> findAll() {

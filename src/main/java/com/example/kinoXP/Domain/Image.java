@@ -7,12 +7,14 @@ import javax.persistence.Id;
 @Entity
 public class Image {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
 
     private String name;
 
-    private Image(){}
+    private Image(){
+    }
 
     public Image(String name) {
         this.name = name;

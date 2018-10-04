@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface MovieService  {
 
+    List<String> pictureArray();
     List<Movie> findAll();
     void addMovie(Movie movie);
     void addMovieShowing(Movie movie, MovieShowing movieShowing);
