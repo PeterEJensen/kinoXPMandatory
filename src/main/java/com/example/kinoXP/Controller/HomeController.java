@@ -46,6 +46,21 @@ public String index() {
         return "truman";
     }
 
+    @RequestMapping(value="/theprestige")
+    public String theprestige(){
+        return "theprestige";
+    }
+
+    @RequestMapping(value="/shawshank")
+    public String shawshank(){
+        return "shawshank";
+    }
+
+    @RequestMapping(value="/reservoir")
+    public String reservoir(){
+        return "reservoir";
+    }
+
 
     @RequestMapping(value="/403")
     public String Error403(){

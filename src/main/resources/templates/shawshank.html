@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <title>Shawshank Redemption</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+
+<div th:replace="fragments/header :: header-css"/>
+<body>
+
+
+
+
+<h2>Shawshank Redemption</h2>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg"
+     height="400" width="300"/></a>
+<h3>
+    <li class="active"><a th:href="@{/contact}" class="navbar-text-color">Book billet til denne film</a></li>
+</h3>
+
+<p>
+    Mauris eu augue faucibus dolor rhoncus lobortis vitae sit amet leo.
+    Nulla facilisi. Aenean et malesuada lorem. Pellentesque sodales, sapien at rhoncus pellentesque, mi nisl
+    pellentesque nibh, sed lobortis turpis nibh nec ligula.
+    Cras feugiat sit amet tellus laoreet viverra. Quisque fringilla tincidunt tortor, et euismod mi euismod ac.
+    Etiam pellentesque vehicula orci, in maximus tortor porttitor in.
+    Vivamus pharetra posuere risus, vitae vulputate dui facilisis vitae. Integer maximus consequat elit quis cursus.
+    Duis volutpat lacinia odio ac tincidunt. Integer finibus leo nec magna venenatis, eu ultricies leo elementum.
+</p>
+
+</body>
+</html>
