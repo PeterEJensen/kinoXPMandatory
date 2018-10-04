@@ -4,8 +4,11 @@ package com.example.kinoXP.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
+
+
 
 @Controller
 public class HomeController {
@@ -62,6 +65,16 @@ public String index() {
         return "showMovies";
     }
 
+    @GetMapping("/calendar")
+    String calendar(Model model) {
+        return "calendar";
+    }
+
+    @GetMapping("/contact")
+    public String contact() {
+
+        return "contact";
+    }
 
 
     @GetMapping("/showBookings")

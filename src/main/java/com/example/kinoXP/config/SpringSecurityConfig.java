@@ -64,6 +64,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .inMemoryAuthentication()
                 .withUser("user").password("{noop}123").roles("USER");//noop removes the use for encrypted password **PASSWORDS ARE STORED IN PLAINTEXT**
 
+
     }
 
     @Override

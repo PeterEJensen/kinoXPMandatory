@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Header1</title>
+
+</head>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body>
+<div th:fragment="header">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img src="https://cinemaxx.azureedge.net/~/static/tznm0feddbiaquk4iqiota/static/img/logo.svg"
+                                                  height="36" width="86"/></a>
+        </div>
+        <ul class="nav navbar-nav">
+
+
+
+            <li class="active"><a th:href="@{/}" class="navbar-text-color">Hjem</a></li>
+            <li class="active"><a th:href="@{/}" class="navbar-text-color">Admin</a></li>
+            <li class="active"><a th:href="@{/add}" class="navbar-text-color">Tilføj film</a></li>
+            <li class="active"><a th:href="@{/h2-console}" class="navbar-text-color">Database konsol</a></li>
+            <li class="active"><a th:href="@{/showMovies}" class="navbar-text-color">Show Movies</a></li>
+            <li class="active"><a th:href="@{/calendar}" class="navbar-text-color">Vagtplan</a></li>
+            <li class="active"><a th:href="@{/login}" class="navbar-text-color">Login</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+</div>
+
+</body>
+</html>

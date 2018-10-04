@@ -1,5 +1,5 @@
 h1{
-    color:#0A4704;
+    color:#000000;
 }
 
 h2{
@@ -12,12 +12,12 @@ footer{
 
 .navbar-carlsberg{
 
-    background-color: #0A4704;
+    background-color: #000000;
     border-color: #0A4704;
 
 }
 .navbar-text-color{
-    color:#0A4704;
+    color:#000000;
 }
 
 /* Style inputs with type="text", select elements and textareas */

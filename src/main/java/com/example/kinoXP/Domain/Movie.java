@@ -19,6 +19,9 @@ public class Movie {
     private String description;
     @OneToMany(mappedBy = "movie")
     private List<MovieShowing> movieShowings;
+    @Lob
+    @Column(name="CATEGORY_PHOTO")
+    private byte[] CategoryPhoto;
 
     public Movie() {
     }
@@ -71,5 +74,12 @@ public class Movie {
         movieShowing.setMovie(this);
     }
 
+    public byte[] getCategoryPhoto() {
+        return CategoryPhoto;
+    }
+
+    public void setCategoryPhoto(byte[] categoryPhoto) {
+        CategoryPhoto = categoryPhoto;
+    }
 }
 

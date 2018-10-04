@@ -1,8 +1,8 @@
 package com.example.kinoXP.Repository;
 
-import com.example.kinoXP.Domain.Movie;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+        import com.example.kinoXP.Domain.Movie;
+        import org.springframework.data.repository.CrudRepository;
+        import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

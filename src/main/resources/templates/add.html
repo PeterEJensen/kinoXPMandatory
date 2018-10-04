@@ -19,6 +19,9 @@
 
 <body>
 
+
+<div th:replace="fragments/header1 :: header"/>
+
 <div class="container">
     <h1>Tilføj film</h1>
     <form th:action="@{/add}" method="post">

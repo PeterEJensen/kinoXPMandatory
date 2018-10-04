@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
+
+
+
     <meta charset="UTF-8">
     <title>The Silence of The Lambs</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+    <div th:replace="fragments/header :: header-css"/>
 </head>
+
+<div th:replace="fragments/header :: header-css"/>
 <body>
+
+
+
 
 <h2>The Silence of The Lambs</h2>
 
 <img src="http://www.gstatic.com/tv/thumb/v22vodart/13013/p13013_v_v8_ac.jpg"
      height="400" width="300"/></a>
-
+<h3>
+<li class="active"><a th:href="@{/contact}" class="navbar-text-color">Book billet til denne film</a></li>
+</h3>
 
 <p>
     Mauris eu augue faucibus dolor rhoncus lobortis vitae sit amet leo.
@@ -21,7 +38,6 @@
     Vivamus pharetra posuere risus, vitae vulputate dui facilisis vitae. Integer maximus consequat elit quis cursus.
     Duis volutpat lacinia odio ac tincidunt. Integer finibus leo nec magna venenatis, eu ultricies leo elementum.
 </p>
-
 
 </body>
 </html>
