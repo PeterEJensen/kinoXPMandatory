@@ -36,6 +36,9 @@ public class MovieServiceImpl implements MovieService{
         arrayList.add("http://www.gstatic.com/tv/thumb/v22vodart/10998/p10998_v_v8_ah.jpg");
         arrayList.add("http://www.gstatic.com/tv/thumb/v22vodart/13013/p13013_v_v8_ac.jpg");
         arrayList.add("https://resizing.flixster.com/1euG0DUzyKp959yYjF4g4_3WSmw=/206x305/v1.bTsxMTI5MDIyNDtqOzE3OTA1OzEyMDA7MjQzOTszMjUy");
+        arrayList.add("https://movieposters2.com/images/634831-b.jpg");
+        arrayList.add("https://images-na.ssl-images-amazon.com/images/I/51B1ehfX4pL.jpg");
+        arrayList.add("https://images-na.ssl-images-amazon.com/images/I/81ghIqiMzuL._SY679_.jpg");
         return arrayList;
 
     }

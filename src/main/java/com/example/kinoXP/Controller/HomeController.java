@@ -21,47 +21,6 @@ public String index() {
 }
 
 
-    @RequestMapping(value="/american")
-    public String american(){
-        return "american";
-    }
-
-    @RequestMapping(value="/clockwork")
-    public String clockwork(){
-        return "clockwork";
-    }
-
-    @RequestMapping(value="/eet")
-    public String eet(){
-        return "eet";
-    }
-
-    @RequestMapping(value="/silencelambs")
-    public String silencelambs(){
-        return "silencelambs";
-    }
-
-    @RequestMapping(value="/truman")
-    public String truman(){
-        return "truman";
-    }
-
-    @RequestMapping(value="/theprestige")
-    public String theprestige(){
-        return "theprestige";
-    }
-
-    @RequestMapping(value="/shawshank")
-    public String shawshank(){
-        return "shawshank";
-    }
-
-    @RequestMapping(value="/reservoir")
-    public String reservoir(){
-        return "reservoir";
-    }
-
-
     @RequestMapping(value="/403")
     public String Error403(){
         return "/error/403";
