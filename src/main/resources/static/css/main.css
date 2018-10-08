@@ -63,3 +63,7 @@ input[type=submit]:hover {
     background-color: lightcoral;
     padding: 1em;
 }
+
+body{
+    background-color:#000000;
+}
